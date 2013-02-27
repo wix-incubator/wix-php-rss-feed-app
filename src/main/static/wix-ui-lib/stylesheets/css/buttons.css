@@ -1,0 +1,55 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.btn {
+  text-shadow: none;
+  background-color: #0099FF;
+  background-repeat: repeat-x;
+  background-position: 0 50%;
+  font-size: 14px;
+}
+.btn.upgrade,
+.btn.default {
+  background-image: url('../../images/bg-gradient.png');
+  background-color: transparent;
+  color: #848484;
+  border-color: #ddd;
+}
+.btn.blue,
+.btn.connect {
+  background: #0099FF;
+  color: #fff;
+  border-color: #5B8FA7;
+}
+.btn.blue:hover,
+.btn.connect:hover {
+  color: #fff;
+  border: 1px solid #237aa7;
+  background-color: #179ce1;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05);
+}
+.btn.upgrade {
+  color: #a41aa4;
+}
+.btn.gray {
+  color: #444;
+  border-color: #888;
+}

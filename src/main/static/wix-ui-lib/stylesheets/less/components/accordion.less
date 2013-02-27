@@ -1,0 +1,62 @@
+/* acc_trigger */
+
+.acc_trigger {
+    cursor: pointer;
+    padding: 10px 10px 0 10px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.acc_title {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
+.acc_title span {
+    font-size: 14px;
+    display: inline-block;
+    color: #0099ff;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+.acc_title:before {
+    width: 24px;
+    height: 24px;
+    margin-top: 0;
+    float: left;
+    overflow: hidden;
+    content: " ";
+    margin-right: 10px;
+    background: url(@{images}/expand-collapse-sprite.png) no-repeat;
+    background-position: 0 -22px;
+}
+
+.active .acc_title:before {
+    background-position: 0 -120px;
+    margin-top: 2px;
+}
+
+.acc_content {
+    border-top: 1px solid #ddd;
+}
+
+.acc_content label {
+    color: #444;
+    font-size: 12px;
+}
+
+.active .acc_title span{
+    color: black ;
+}
+
+.acc_trigger.active {
+    cursor: default;
+}

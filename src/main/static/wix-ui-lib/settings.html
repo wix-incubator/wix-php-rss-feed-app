@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Widget Settings &bull; Wix</title>
+    <link type="text/css" href="stylesheets/css/main.css" rel="stylesheet">
+    <link type="text/css" href="stylesheets/css/settings.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="intro box">
+    <div class="title">
+        <!-- App Logo with native CSS3 gloss -->
+        <div class="icon">
+            <div class="logo">
+                <span class="gloss"></span>
+            </div>
+        </div>
+
+        <!-- This divider is a must according to the Wix design requirements -->
+        <div class="divider"></div>
+    </div>
+
+    <!-- Connect account area -->
+    <div class="login">
+        <div class="guest">
+            <div class="description">
+                <p>
+                    This is a sample Settings view for widgets and pages created with <a href="http://dev.wix.com" target="_blank">Wix's 3rd Party SDK</a>,
+                    compatible with Wix's product requirements.
+                    This boilerplate is aimed at saving time for developing the UI of your apps, and let the
+                    developer focus on developing logic.
+                </p>
+            </div>
+
+            <div class="login-panel">
+                <p class="create-account">Don't have an<br/>account? <a href="#"><strong>Create one</strong></a></p>
+                <button class="submit btn connect">Connect account</button>
+            </div>
+        </div>
+
+        <div class="user hidden">
+            <p>
+                You are now connected to <strong class="user-name">John Doe (john@doe.com)</strong> account<br/>
+                <a class="disconnect-account">Disconnect account</a>
+            </p>
+            <div class="premium">
+                <p class="premium-features">Premium features</p>
+                <button class="submit btn upgrade">Upgrade</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Settings box -->
+<div class="accordion">
+    <!-- List 1: Controls -->
+    <div class="box">
+        <h3>List 1: Controls</h3>
+        <div class="feature">
+            <p>Lists can be used to collect a bulk of controls on the same subject.</p>
+            <ul class="list">
+                <li>
+                    <span class="option">Option 1</span>
+                    <span class="checkbox">
+                        <span class ="check"></span>
+                        <span>Show Badge</span>
+                    </span>
+                </li>
+                <li>
+                    <span class="option">Option 2</span>
+                    <span class="picker"><a rel="popover" class="example-1-color-picker color-selector default"></a></span>
+                    <span class="values slider" id="exmaple1-slider"></span>
+                </li>
+                <li>
+                    <span class="option">Option 4</span>
+                    <span class="options radiobuttons">
+                        <span class="radiobutton">Transparent</span>
+                        <span class="radiobutton">Dark</span>
+                    </span>
+                </li>
+                <li>
+                    <span class="option">Option 5</span>
+                    <span class="checkbox">
+                        <span class ="check"></span>
+                        <span>Use advanced settings</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- List 2: Layouts -->
+    <div class="box">
+        <h3>List 2: Layouts</h3>
+        <div class="feature">
+            <p>Layout Pickers are helpful in letting the user choose between different layout presets.</p>
+            <div class="layouts">
+                <figure class="boxes"><figcaption class="radiobutton">Layout 1</figcaption></figure>
+                <figure class="full"><figcaption class="radiobutton">Layout 2</figcaption></figure>
+                <figure class="grid"><figcaption class="radiobutton">Layout 3</figcaption></figure>
+            </div>
+        </div>
+    </div>
+
+    <!-- Radio Buttons -->
+    <div class="box">
+        <h3>Radio Buttons</h3>
+        <div class="feature">
+            <p>Radio Buttons groups options and lets the user select one options from the group.</p>
+            <div class="radiobuttons">
+                <div class="radiobutton"><p>Option 1</p></div>
+                <div class="radiobutton"><p>Option 2</p></div>
+                <div class="radiobutton"><p>Option 3</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkboxes -->
+    <div class="box">
+        <h3>Checkboxes</h3>
+        <div class="feature">
+            <p>Checkboxes are use for multiple selection.</p>
+            <span class="checkbox">
+                <span class ="check"></span>
+                <span>Option 1</span>
+            </span>
+            <span class="checkbox">
+                <span class ="check"></span>
+                <span>Option 2</span>
+            </span>
+            <span class="checkbox">
+                <span class ="check"></span>
+                <span>Option 3</span>
+            </span>
+
+        </div>
+    </div>
+
+    <!-- Color Pickers -->
+    <div class="box">
+        <h3>Color Pickers</h3>
+        <div class="feature">
+            <p>Color pickers are easy to use and enable the user to customize your widget or page.</p>
+            <a rel="popover" class="color-picker-1 color-selector default"></a>
+        </div>
+    </div>
+
+    <!-- Buttons and Button Groups (Twitter Bootstrap) -->
+    <div class="box">
+        <!-- Box title -->
+        <h3>Button Groups</h3>
+        <!-- Feature wrapper -->
+        <div class="feature">
+            <!-- Feature title -->
+            <p>
+                Button groups are used to present a collection of buttons, and behaves like Radio Buttons
+                (you can only select <strong>one</strong> option in the group).
+            </p>
+            <div class="btn-group" data-toggle="buttons-radio">
+                <button type="button" value="option1" class="btn default active">Option 1</button>
+                <button type="button" value="option2" class="btn default">Option 2</button>
+                <button type="button" value="option3" class="btn default">Option 3</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sliders -->
+    <div class="box">
+        <h3>Sliders</h3>
+        <div class="feature">
+            <p>Sliders enable the user to easily select a value.</p>
+            <div id="slider1" class="slider"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Wix SDK -->
+<script type="text/javascript" src="//sslstatic.wix.com/services/js-sdk/1.16.0/js/Wix.js"></script>
+
+<!-- jQuery; needed for Twitter Bootstrap -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<!-- Twitter Bootstrap components;
+     include this to utilize the Color Pickers, based on Tooltip and Popover -->
+<script type="text/javascript" src="javascripts/bootstrap/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap/bootstrap-popover.js"></script>
+
+<!-- Wix UI Components -->
+<script type="text/javascript" src="javascripts/components/accordion/accordion.js"></script>
+<script type="text/javascript" src="javascripts/components/checkbox/checkbox.js"></script>
+<script type="text/javascript" src="javascripts/components/radio-button/radio-button.js"></script>
+<script type="text/javascript" src="javascripts/components/slider/slider.js"></script>
+<script type="text/javascript" src="javascripts/components/color-picker/color-pickers/simple.js"></script>
+<script type="text/javascript" src="javascripts/components/color-picker/color-pickers/advanced.js"></script>
+<script type="text/javascript" src="javascripts/components/color-picker/color-picker.js"></script>
+
+<!-- Settings View Logic -->
+<script type="text/javascript" src="javascripts/views/settings.js"></script>
+
+</body>
+</html>

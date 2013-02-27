@@ -1,0 +1,447 @@
+@import url(../helpers/helpers.less);
+
+    @textLight: #737373;
+    @textColor: #373737;
+    @premiumColor: #A41AA4;
+    @linkColor: #0099FF;
+
+// App Intro
+// Presented on the top of the Widget Settings Panel
+
+body {
+    margin: 10px;
+    font-family: "Arial", sans-serif;
+}
+
+.intro {
+  &.box {
+    cursor: default;
+    overflow: hidden;
+    padding: 0;
+    &:hover {
+      background: #fff;
+      border-color: #ccc;
+    }
+  }
+
+  .title {
+      max-width: 30%;
+      float: left;
+
+      .divider {
+        height: 86px;
+        width: 1px;
+        background: #ccc;
+        margin: 24px 24px 24px 0;
+        float: left;
+      }
+  }
+
+  .icon, .description {
+      float: left;
+  }
+
+  .icon {
+    position: relative;
+
+    margin: 24px;
+
+    width: 86px;
+    height: 86px;
+
+    .radius(@iconRadius);
+
+    .logo {
+      border-radius: 15px;
+
+      height: 100%;
+      width: 100%;
+
+      background: url('@{images}/wix_icon.png') center;
+    }
+
+      .gloss {
+      position: absolute;
+      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.2))); /* Chrome,Safari4+ */
+      z-index: 1;
+
+      border-top-right-radius: 38px 38px;
+      border-top-left-radius: 38px 38px;
+      border-bottom-right-radius: 120px 30px;
+      border-bottom-left-radius: 100px 30px;
+
+      height: 50%;
+      width: 100%;
+    }
+  }
+
+  .description {
+      margin: 24px 0;
+      p {
+          margin: 0;
+      }
+  }
+}
+
+.login-panel {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.login {
+  overflow: hidden;
+    padding-right: 10px;
+
+
+  button.submit {
+    float: right;
+  }
+
+  .premium-features,
+  .create-account {
+    margin: 0;
+    float: left;
+    font-size: 11px;
+    text-align: left;
+    color: @textLight;
+  }
+
+  .user {
+      position: relative;
+      min-height: 110px;
+
+      p {
+          margin: 24px 0 0;
+      }
+  }
+
+  .premium {
+      overflow: hidden;
+      width: 100%;
+      bottom: 0;
+
+      > p {
+        line-height: 30px;
+        margin: 0;
+        line-height: 30px;
+      }
+  }
+
+  .disconnect-account {
+    cursor: pointer;
+  }
+}
+
+.premium-features {
+    background: url('@{images}/premium-features.png') no-repeat center left;
+    padding-left: 20px;
+}
+
+
+// Settings Box
+// Contains settings interface for a speicific widget feature
+
+.box {
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 0 10px;
+
+  .radius(@boxRadius);
+
+// Box Title
+  > h3 {
+    font-size: 12px;
+    display: block;
+    font-weight: normal;
+    margin: 0;
+    line-height: 40px;
+    color: @linkColor;
+
+    &:before {
+      content: " ";
+      background-image: url('@{images}/expand-collapse-sprite.png');
+      background-repeat: no-repeat;
+      background-position: 0 -85px;
+      width: 22px;
+      height: 23px;
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+
+    &:hover {
+      color: #0077dd;
+      text-decoration: underline;
+
+      &:before {
+        background-position: 0 -19px;
+      }
+    }
+
+    &:active {
+      &:before {
+        background-position: 0 -41px;
+      }
+    }
+  }
+
+  &.active {
+    cursor: auto !important;
+
+    h3 {
+      color: @textColor;
+
+      &:before {
+        background-position: 0 3px;
+      }
+
+      &:hover {
+        &.active {
+          &:before {
+            background-position: 0 -107px;
+          }
+        }
+        text-decoration: none;
+      }
+    }
+  }
+
+  .feature {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+
+    > * {
+      margin: 0 28px;
+    }
+
+    input {
+      margin-right: 10px;
+    }
+
+    > p {
+      font-size: 12px;
+      margin-bottom: 10px;
+      font-weight: normal;
+      color: @textLight;
+    }
+  }
+
+  .list {
+    padding: 0;
+    margin-bottom: 0;
+
+    li {
+      list-style: none;
+      border-bottom: 1px solid #d4d4d4;
+      font-size: 12px;
+      min-height: 40px;
+      line-height: 40px;
+
+      > * {
+        display: inline-block;
+        margin-right: 10px;
+        color: @textColor;
+      }
+
+      &:nth-last-child(1) {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .option {
+        min-width: 70px;
+        font-weight: bold;
+        color: @textColor;
+      }
+
+      .slider {
+          .knob {
+              top: 27.5%;
+          }
+      }
+    }
+  }
+}
+
+.checkbox {
+  padding-left: 0; // override Twitter Bootstrap
+  min-height: 0; // override Twitter Bootstrap
+  cursor: pointer;
+  line-height: 18px;
+
+  .check {
+    background-image: url('@{images}/checbox-sprite.png');
+    background-repeat: no-repeat;
+    background-position: 0 -18px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+  }
+
+  &.checked {
+    .check {
+      background-position: 0 -1px;
+    }
+  }
+
+  p {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.radiobutton {
+  cursor: pointer;
+  margin-right: 10px;
+
+  .check {
+    background-image: url('@{images}/radio-button-sprite.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    width: 16px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &.checked {
+    .check {
+      background-position: 0 -13px;
+    }
+  }
+
+  p {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.slider {
+  position: relative;
+
+  min-width: 180px;
+    vertical-align: middle;
+
+  .slider-middle,
+  .slider-right,
+  .slider-left {
+    display: inline-block;
+    height: 4px;
+  }
+
+  .slider-right,
+  .slider-left {
+    width: 4px;
+  }
+
+  .slider-right,
+  .slider-left,
+  .knob {
+    background-repeat: no-repeat;
+  }
+
+  .slider-middle {
+    background-image: url('@{images}/slider-bg-pixel.png');
+    background-repeat: repeat-x;
+    max-width: 88%;
+    min-width: 80px;
+  }
+
+  .slider-right {
+    background-image: url('@{images}/slider-bg-right.png');
+  }
+
+  .slider-left {
+    background-image: url('@{images}/slider-bg-left.png');
+  }
+
+  .knob {
+    background-image: url('@{images}/slider-knob.png');
+    background-position: -6px 0;
+
+    position: absolute;
+    top: 3px;
+    left: -2px;
+
+    height: 24px;
+    width: 18px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .val,
+  .min,
+  .max {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .min,
+  .max {
+    font-size: 12px;
+    margin: 0 5px;
+  }
+
+  .val {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    font-size: 10px;
+    color: @textColor;
+  }
+
+  .slider-label,
+  .bar {
+    display: inline-block;
+  }
+}
+
+// TODO: Remove; fix this in color-picker.less
+.picker {
+    vertical-align: middle;
+    position: relative;
+    top: 8px;
+}
+
+.layouts {
+    text-align: center;
+    padding-bottom: 50px;
+
+
+    figure {
+        margin: 0 10px;
+
+        list-style: none;
+        display: inline-block;
+
+        height: 77px;
+        width: 64px;
+
+        background-image: url('@{images}/layouts.png');
+        background-position: top;
+        background-repeat: no-repeat;
+
+        figcaption {
+            font-size: 12px;
+            position: relative;
+            top: 90px;
+            margin: 0;
+            cursor: pointer;
+            color: @textLight;
+        }
+
+        &.boxes { background-position: 0 0; }
+        &.full { background-position: 0 -87px; }
+        &.grid { background-position: 0 -174px; }
+    }
+}

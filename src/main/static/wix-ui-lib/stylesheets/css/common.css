@@ -1,0 +1,26 @@
+body {
+  margin: 20px;
+  background: #FDFDFD;
+  font-family: "Arial";
+}
+p {
+  line-height: 17px;
+  color: #484848;
+  font-size: 12px;
+}
+a {
+  color: #09F;
+  text-decoration: none;
+}
+a:hover {
+  color: #07D;
+  text-decoration: underline;
+}
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.disable {
+    opacity: 0.35;
+}

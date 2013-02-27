@@ -1,0 +1,78 @@
+body, html {
+    font-family: sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none !important;
+    color: #444;
+}
+
+.main-title {
+    text-align: center;
+    margin:0;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.feed {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+}
+
+.widget-body {
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    overflow: hidden;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.widget-header {
+    overflow: hidden;
+    margin-bottom: 10px;
+    height: 50px;
+}
+
+.feed-container {
+    box-shadow: #888 0 0 10px;
+    border: 1px solid #fff;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin: 0 10px 10px;
+}
+
+.overview{
+    overflow-y: auto;
+    position: relative !important;
+}
+
+.feed:hover {
+    background: #fff;
+    opacity: 0.5;
+    box-shadow: #ddd 0 0 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-bottom-color: transparent;
+}
+
+.feed .title {
+    font-size: 13px;
+    line-height: 20px;
+    font-weight:bold;
+}
+
+.feed .content p {
+    font-size: 12px;
+    line-height: 18px;
+    font-style: italic;
+}

@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".accordion").Accordion();$(".color-picker-1").ColorPicker();$(".slider").Slider({type:"Value"});$(".checkboxes").Checkbox({checked:0});$(".radiobuttons").Radio({checked:0});$(".example1-color-picker").ColorPicker();$(".example1 .radiobuttons").Radio({checked:0})});

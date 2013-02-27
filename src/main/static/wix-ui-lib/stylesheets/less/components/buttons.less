@@ -1,0 +1,45 @@
+// Wix TPA Buttons
+// Style for Twitter Bootstrap buttons
+
+@import url(../helpers/helpers.less);
+@import url(../bootstrap/mixins.less);
+
+.btn {
+  text-shadow: none;
+
+  background-color: #0099FF;
+  background-repeat: repeat-x;
+  background-position: 0 50%;
+
+  font-size: 14px;
+
+  &.upgrade,
+  &.default {
+    background-image: url('@{images}/bg-gradient.png');
+    background-color: transparent;
+    color: #848484;
+    border-color: #ddd;
+  }
+
+  &.blue,
+  &.connect {
+    background: #0099FF;
+    color: #fff;
+    border-color: #5B8FA7;
+    &:hover {
+      color: #fff;
+      border: 1px solid #237aa7;
+      background-color: #179ce1;
+      .box-shadow(~"inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05)");
+    }
+  }
+
+  &.upgrade {
+      color: #a41aa4;
+  }
+
+  &.gray {
+    color: #444;
+    border-color: #888;
+  }
+}

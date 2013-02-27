@@ -1,0 +1,9 @@
+/* humans.txt */
+/* We Are People, Not Machines */
+/* humanstxt.org */
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Libraries: jQuery, jQuery Bootstrap, Less, Wix SDK
+  Plugins: Color Picker, Accordion, Checkbox, Slider, Radio Button
+  Software: IntelliJ IDEA, CodeKit

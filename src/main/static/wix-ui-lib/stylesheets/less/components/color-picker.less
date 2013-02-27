@@ -1,0 +1,361 @@
+// Wix TPA Color Picker
+
+@import url(../helpers/helpers.less);
+
+.popover {
+    width: 382px;
+
+    .popover-header {
+        width: 100%;
+        height: 34px;
+        border-bottom: 1px solid #d4d4d4;
+        h5 {
+            line-height: 32px;
+        }
+    }
+
+    .popover-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        width: 34px;
+        height: 34px;
+
+        border-left: 1px solid #d4d4d4;
+        cursor: pointer;
+
+        .popover-close-x {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            background-image: url("http://static.wix.com/services/html-web-skins/1.211.19/images/wysiwyg/core/themes/editor_web/icons/top-bar-icons.png");
+            background-repeat:no-repeat;
+            background-position:50% -2px;
+        }
+
+        &:hover {
+            .popover-close-x {
+                background-position:50% -142px;
+            }
+        }
+    }
+
+    .popover-content {
+        padding: 0;
+    }
+}
+
+#picker-main {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 6px 12px 0;
+
+    .radius(3px);
+}
+
+#colorPicker {
+    padding: 12px;
+    background: #fdfdfd;
+
+    .radius(3px);
+}
+
+#preview {
+    height: 30px;
+    margin-top: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    background-image: url('@{images}/transparency.gif');
+    .radius(3px);
+}
+
+#originalColor, #selectedColor {
+    display: inline-block;
+    width: 50%;
+    height: 30px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px 0px inset;
+}
+
+#originalColor {
+    border-radius: 5px 0 0 5px;
+}
+
+#selectedColor {
+    border-radius: 0 5px 5px 0;
+}
+
+/* action buttons */
+
+#actions {
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+#actions button {
+    font-size: 14px;
+    min-width: 59px;
+}
+
+button#cancelSelection {
+    float: left;
+}
+
+button#selectColor {
+    float: right;
+}
+
+/* tabs */
+
+#tabs {
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    height: 34px;
+    line-height: 34px;
+
+    a {
+        cursor: pointer;
+        margin: 0 0 0 10px;
+        font-size: 14px;
+        color: #0099ff;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    button {
+        margin: 5px 5px 0;
+    }
+}
+
+/*
+ * Simple color picker
+ */
+
+.palette-row {
+    height: 33px;
+}
+
+.palette-row-fixed {
+    padding-top: 7px;
+}
+
+.palette-row-fixed .color-unit {
+    margin-bottom: 0;
+}
+
+.color-selector {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    cursor: pointer;
+    &.active {
+        cursor: auto;
+    }
+}
+
+.color-unit {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #c4c4c4;
+    margin: 0 3px 3px 0;
+    width: 28px;
+    height: 28px;
+    .radius(4px);
+
+    &:hover {
+        box-shadow: 0 2px 3px 0 rgba(0,0,0,.35), 0 1px 2px 0 rgba(255,255,255,.7) inset;
+        border-color: #d4d4d4;
+    }
+
+    &.active {
+        border-color: #3366FF;
+    }
+}
+
+.color-unit-inner {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    .radius(3px);
+}
+
+.color-icon {
+    background: url("@{images}/color-picker-dropdown-frame.png") 0 0 no-repeat;
+    margin: 2px 0 0 2px;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.color-selector {
+    display: block;
+    width: 50px;
+    height: 25px;
+    background-image: url("@{images}/color-selector-sprite.png");
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+
+    &:hover {
+        background-position: 0 -28px;
+    }
+
+    &.active:hover, .up {
+        background-position: 0 -55px;
+    }
+}
+
+.inner {
+    width: 30px;
+    height: 18px;
+    top: -19px;
+    left: 5px;
+    display: block;
+    z-index: 1;
+    position: relative;
+}
+
+/*
+ * Advanced Color Picker
+ */
+
+.advanced-color-palette {
+    margin-right: 10px;
+    .acp-picker-palette {
+        position: relative;
+        width: 162px;
+        height: 162px;
+        display: inline-block;
+        box-shadow: rgba(0, 0, 0, 0.498039) 1px 1px 3px 0px inset;
+
+        .acp-selector {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 2px double #fff;
+            top: -7px;
+            left:-7px;
+
+            .radius(6px);
+        }
+
+    }
+
+    .acp-slider-palette {
+        position: relative;
+        width: 18px;
+        height: 162px;
+        margin-left: 7px;
+        display: inline-block;
+        box-shadow: 1px 1px 3px 0 rgba(0,0,0,.5) inset;
+    }
+}
+
+.readouts {
+    float: left;
+    height: 162px;
+    vertical-align: top;
+
+    hr {
+        height: 1px;
+        background: #ddd;
+        border: none;
+        margin-top: 20px;
+    }
+
+    .acp-readout input:focus {
+        background: rgba(0, 153, 255, 0.20);
+        color: #444;
+    }
+
+    #acpReadoutWrapper_HEX:before {
+        content: "Hex";
+    }
+
+    #acpReadoutWrapper_H:before {
+        content: "H";
+    }
+
+    #acpReadoutWrapper_S:before {
+        content: "S";
+    }
+
+    #acpReadoutWrapper_L:before {
+        content: "L";
+    }
+
+    #acpReadoutWrapper_H:after {
+        content: "\00B0";
+    }
+
+    #acpReadoutWrapper_S:after,
+    #acpReadoutWrapper_L:after {
+        content: "%";
+    }
+
+    > label {
+        display: block;
+        height: 30px;
+        margin-bottom: 5px;
+        text-align: left;
+
+    }
+
+    > label#acpReadout_HEX {
+        position: relative;
+        margin-top: 10px;
+        margin-right: 0;
+        line-height: 29px;
+    }
+
+}
+
+
+.acp-slider {
+    position: absolute;
+    width: 18px;
+    height:	12px;
+    background: url("http://static.wix.com/services/html-client-core/2.63.0/images/mobile/core/themes/editor_mobile/hueBar.png") no-repeat;
+    top: -6px;
+}
+
+.advanced-viewer {
+    height: 162px;
+    padding-top: 6px;
+
+    .advanced-color-palette {
+        float: left;
+    }
+}
+
+.acp-readout-input#acpReadoutInput_HEX {
+    position: absolute;
+    float: right;
+}
+
+.acp-readout-input {
+    border: 1px solid #B4B4B4;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0 inset;
+    margin: 0 8px 0 8px;
+    width: 70px;
+    height: 27px;
+    line-height: 1.1em;
+    font-size: 0.8em;
+    text-align: center;
+    color: #848484;
+    text-transform: uppercase;
+    outline: 0;
+    vertical-align: baseline;
+    .radius(3px);
+}

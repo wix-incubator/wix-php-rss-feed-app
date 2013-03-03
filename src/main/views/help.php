@@ -12,16 +12,12 @@
 <div class="container-fluid">
     <div class="container-fluid thumbnail" style="margin-top:20px; padding:20px; box-shadow:#ccc 0 0 15px">
         <h1>Wix GAE Example App - Help</h1>
-        <h2>Your App is alive on Google App Engine</h2>
+        <h2>Your App is alive</h2>
         <hr/>
         <p>You can now proceed to code your Wix App Endpoints using Spring MVC controllers and GAE Services</p>
         <p>Important links:</p>
         <ul>
             <li><a href="http://dev.wix.com/">Wix Developers Center</a></li>
-            <li><a href=https://developers.google.com/appengine/>Google App Engine Documentation</a></li>
-            <li><a href=https://appengine.google.com/>Google App Engine Dashboard</a></li>
-            <li><a href=http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/html/mvc.html>Spring MVC documentation</a></li>
-            <li><a href=http://velocity.apache.org/engine/devel/user-guide.html>Velocity Documentation</a> (the src/main/resources/views/*.vm files)</li>
             <li><a href=http://twitter.github.com/bootstrap/>Bootstrap</a> (the CSS library used in the example)</li>
         </ul>
     </div>

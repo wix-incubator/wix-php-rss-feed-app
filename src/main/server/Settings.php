@@ -1,12 +1,20 @@
 <?php
 
 
-require_once 'DbTable.php';
+require_once 'framework/DbTable.php';
+
+/**
+ * Settings Singleton Class used for the settings CRUD
+ * handle saving and retrieving the widget setting form the database
+ */
 
 class Settings extends DbTable {
     private static $instance;
     protected $db;
 
+    /**
+     * setup tables columns
+     */
     protected function __construct() {
         parent::__construct('settings', array(
                 'instanceId'=>array(),
@@ -14,6 +22,9 @@ class Settings extends DbTable {
         );
     }
 
+    /**
+     * @return Settings instance
+     */
     public static function getInstance() {
         if (is_null(self::$instance)) {
             self::$instance = new self();
@@ -21,6 +32,11 @@ class Settings extends DbTable {
         return self::$instance;
     }
 
+    /**
+     * used to check if a widget settings exist in the database
+     * @param $instanceId
+     * @return bool
+     */
     function isSettingsExist($instanceId) {
         if(!$instanceId){return false;}
         $settings =  $this->select('settings', 'where instanceId=?', array($instanceId));
@@ -30,6 +46,11 @@ class Settings extends DbTable {
         return true;
     }
 
+    /**
+     * retrieve the widget settings
+     * @param $appInstance
+     * @return array|mixed
+     */
     function getSettings($appInstance) {
         $defaults = array('settings' => '{}');
         if(!$appInstance){return $defaults;}
@@ -38,6 +59,10 @@ class Settings extends DbTable {
         return json_decode( $settings[0]->settings , true);
     }
 
+    /**
+     * atomic save of the widget settings
+     * @param $appInstance
+     */
     function updateSettings($appInstance) {
         $postBody = file_get_contents('php://input');
         $data = json_decode($postBody);

@@ -1,7 +1,16 @@
 <?php
-
+/**
+ * Simple PHP template class
+ * used to render php templates with array of variables
+ *
+ */
 class Template {
-
+    /**
+     * @param $tpl_file
+     * @param array $vars
+     * @param bool $include_globals
+     * @return string
+     */
     static function render($tpl_file, $vars = array(), $include_globals = false) {
 
         if (!file_exists($tpl_file) || is_dir($tpl_file)) { return '404'; }

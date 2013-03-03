@@ -11,6 +11,16 @@ This is app is built using the same structure and concept as the <a href="https:
 
 This project is set to work on your local dev machine using Apache HTTP server and a local sqlite3 database.
 
+### Setup
+
+#### How To Install
+
+1. download and install wamp form http://www.wampserver.com/en/  (you only need the apache server).
+2. install the mod rewrite module for apache.
+3. create alias to localhost/app and point it to the wix-rss-feed-app folder.
+4. change the APP_SECRET inside the authentication resolver to your app secret.
+
+
 ## License
 
 Copyright (c) 2012 Wix.com, Inc

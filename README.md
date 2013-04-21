@@ -15,10 +15,13 @@ This project is set to work on your local dev machine using Apache HTTP server a
 
 #### How To Install
 
-1. download and install wamp form http://www.wampserver.com/en/  (you only need the apache server).
-2. install the mod rewrite module for apache.
-3. create alias to localhost/app and point it to the wix-rss-feed-app folder.
-4. change the APP_SECRET inside the authentication resolver to your app secret.
+1. Download and install wamp form http://www.wampserver.com/en/  (you only need the apache server).
+2. Install the mod rewrite module for apache.
+3. Under your wamp server root (e.g. on Windows C:\wamp\www) create a folder named app.
+4. Make sure that the app index.php is reachable from the 'localhost/app' folder by either:
+   - Creating an alias from the 'localhost/app' folder to the 'wix-rss-feed-app/src/main' folder
+   - Copying the content of the 'wix-rss-feed-app/src/main' folder to the 'localhost/app' folder
+5. Change the APP_SECRET inside the authentication resolver to your app secret.
 
 
 ## License

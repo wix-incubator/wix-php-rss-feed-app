@@ -1,14 +1,3 @@
-body {
-    font-family: sans-serif;
-}
-
-/*login section*/
-
-#feedSignIn {
-    margin-top: 10px;
-    overflow: hidden;
-}
-
 #feedSignIn .feed-label {
     margin: 10px 0 5px;
     color: #444;
@@ -16,52 +5,24 @@ body {
     display: block;
 }
 
-#feedSignIn input {
-    float: left;
-    width: 65%;
-    margin-top: -1px;
-    margin:0;
-    padding:0;
-    line-height: 30px;
-    height:30px;
-
-    font-size:14px;
-
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
+#rssFeedUrl {
+	outline:0;
+    width: 413px;
+    line-height: 28px;
     border-radius: 3px;
-
     border: 1px solid #b4b4b4;
-    box-shadow: 0 1px 1px 0 inset;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.3);
+	padding: 0 5px;
+	margin: 0 0 5px 0;
 }
 
-#feedSignIn input:hover {
+#rssFeedUrl:hover {
     border-color: #a3d9f6;
-    cursor:pointer;
 }
 
-#feedSignIn input:focus {
+#rssFeedUrl:focus {
     border-color: #19a0e9;
     cursor:text;
-}
-
-#feedSignIn button {
-    margin: 0;
-}
-
-.guest .description {
-    margin-bottom: 6px;
-}
-
-.user p .feed-description {
-    font-style:italic;
-}
-
-.color-picker-label {
-    color: #373737;
-    width: 100px;
 }
 
 .input-number {
@@ -70,18 +31,10 @@ body {
     padding: 0 3px;
     line-height: 1.1em;
     height: 1.8em;
-
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
+	outline:0;
     border-radius: 3px;
-
     border: 1px solid #b4b4b4;
-    box-shadow: 0 1px 1px 0;
-    shadowColor: rgba(0,0,0,.1) inset;
-    font-size: .916em;
-    margin-top: 9px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.3);
 }
 
 .input-number:hover {
@@ -89,9 +42,4 @@ body {
 }
 .input-number:focus {
     border-color: #19a0e9;
-}
-
-.slider {
-    margin-top: -6.5px;
-    margin-left: 7px;
 }

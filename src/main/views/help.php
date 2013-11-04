@@ -2,23 +2,22 @@
 <html>
 <head>
     <title>Wix GAE Example App - Help</title>
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.js"></script>
+    <style>
+      .text-error { color:red; background:rgba(255,0,0,0.1); padding:5px; }
+      .text-info{ color:rgb(0,100,255); background:rgba(0,100,255,0.1); padding:5px; }
+      .container{ margin-top:20px; padding:20px;  box-shadow:#ccc 0 0 15px; border-radius:5px; }    
+    </style>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="container-fluid thumbnail" style="margin-top:20px; padding:20px; box-shadow:#ccc 0 0 15px">
+
+    <div class="container">
         <h1>Wix GAE Example App - Help</h1>
         <h2>Your App is alive</h2>
         <hr/>
-        <p>You can now proceed to code your Wix App Endpoints using Spring MVC controllers and GAE Services</p>
+        <p class="text-info">You can now proceed to code your Wix App Endpoints using Spring MVC controllers and GAE Services</p>
         <p>Important links:</p>
         <ul>
             <li><a href="http://dev.wix.com/">Wix Developers Center</a></li>
-            <li><a href=http://twitter.github.com/bootstrap/>Bootstrap</a> (the CSS library used in the example)</li>
         </ul>
     </div>
     <h2>The project structure</h2>
@@ -42,6 +41,6 @@ src                                  &rarr; The sources folder
    &#9492; java                            &rarr; Java test sources
 pom.xml                              &rarr; Maven definition file
     </pre>
-    </div>
+    
 </body>
 </html>

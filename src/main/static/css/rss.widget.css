@@ -3,6 +3,7 @@ body, html {
     height: 100%;
     margin: 0;
     padding: 0;
+
 }
 
 a {
@@ -25,19 +26,19 @@ a {
     margin: 10px;
 }
 
-.widget-body {
+#widget-body {
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     height: 100%;
     vertical-align: middle;
+	padding:0 10px;
+	overflow: auto;
 }
 
 .widget-header {
-    overflow: hidden;
+    /*overflow: hidden;
     margin-bottom: 10px;
-    height: 50px;
+    height: 50px;*/
 }
 
 .feed-container {
@@ -45,14 +46,13 @@ a {
     border: 1px solid #fff;
     background-color: #f8f8f8;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    margin: 0 10px 10px;
+    /*margin: 0 10px 10px;*/
 }
 
 .overview{
-    overflow-y: auto;
-    position: relative !important;
+    /*overflow-y: auto;*/
+    /*position: relative !important;*/
+	margin: 0 0 10px 0;
 }
 
 .feed:hover {
@@ -60,8 +60,6 @@ a {
     opacity: 0.5;
     box-shadow: #ddd 0 0 10px;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-bottom-color: transparent;
 }
 

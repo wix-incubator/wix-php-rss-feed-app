@@ -1,67 +1,9 @@
 /**
- * A global object containing jquery elements
- **/
-var sp ={
-    connectButton :  $('#connectBtn'),
-    feedInputUrlElm : $('#rssFeedUrl'),
-    numOfEntriesInput : $('#numOfEntries'),
-    disconnectAccountElm : $('#disconnectAccount'),
-    sliders: {widgetBcgCB: {}, feedBcgCB: {}},
-    feedLink : $('#feedLink')
-}
-
-/**
- * Init color pickers plugins
- * Init the color pickers with a start color, a one that was saved in the DB or a default one
- */
-function initColorPickers() {
-    $('#titleTextColor').ColorPicker({startWithColor : rssModel.settings.titleTextColor});
-    $('#textColor').ColorPicker({startWithColor : rssModel.settings.textColor});
-    $('#widgetBcgColor').ColorPicker({startWithColor : rssModel.settings.widgetBcgColor});
-    $('#feedBcgColor').ColorPicker({startWithColor : rssModel.settings.feedBcgColor});
-}
-
-/**
- * Init sliders plugins
- * Init the sliders with a start value, a one that was saved in the DB or a default one
- */
-function initSliders() {
-    sp.sliders['widgetBcgCB'] = $('#widgetBcgSlider').Slider({
-                                    type: "Value",
-                                    value: rssModel.settings.widgetBcgSlider
-                                });
-    sp.sliders['feedBcgCB'] = $('#feedBcgSlider').Slider({
-                                    type: "Value",
-                                    value: rssModel.settings.feedBcgSlider
-                                });
-}
-
-/**
- * Init checkboxes plugins
- * Check or uncheck the checkboxes according to the value was saved in the DB or a default one
- */
-function initCheckboxes() {
-    $('#widgetBcgCB').Checkbox({ checked: rssModel.settings.widgetBcgCB });
-
-    // Enable or disable the opacity bar according to the checkbox
-    if (!rssModel.settings.widgetBcgCB) {
-        sp.sliders['widgetBcgCB'].data('plugin_Slider').disable();
-    }
-
-    $('#feedBcgCB').Checkbox({ checked: rssModel.settings.feedBcgCB });
-
-    // Enable or disable the opacity bar according to the checkbox
-    if (!rssModel.settings.feedBcgCB){
-        sp.sliders['feedBcgCB'].data('plugin_Slider').disable();
-    }
-}
-
-/**
  * Init the input elements
  * Init the input  with a start value, a one that was saved in the DB or a default one
  */
 function initInputElms() {
-    sp.numOfEntriesInput.val(rssModel.settings.numOfEntries);
+    $('#numOfEntries').val(rssModel.settings.numOfEntries);
 }
 
 /**
@@ -69,48 +11,34 @@ function initInputElms() {
  * Listen to changes of the elements
  */
 function bindEvents () {
-    $(document).on('colorChanged', function(ev, data) {
-        updateSettingsProperty(data.type, data.selected_color);
-    });
-
-    $(document).on('slider.change', function(ev, data) {
-        updateSettingsProperty(data.type, data.value);
-    });
-
-    $(document).on('checkbox.change', function(ev, data) {
-        if (data.checked) {
-            sp.sliders[data.type].data('plugin_Slider').enable();
-        }else {
-            sp.sliders[data.type].data('plugin_Slider').disable();
-        }
-
-        updateSettingsProperty(data.type, data.checked);
-    });
-
+	var $rssFeedUrl = $('#rssFeedUrl')
+	var $numOfEntriesInput = $('#numOfEntries');
+	
+	var lastValue = '';
     // user has connected a feed
-    sp.connectButton.click( function(){
-        rssModel.settings.feedInputUrl = sp.feedInputUrlElm.val();
-
-        // hide guest description and show connected description
-        displayHeader();
-
-        updateSettingsProperty("feedInputUrl", rssModel.settings.feedInputUrl);
+    $('#connectBtn').click( function(){
+		if(lastValue !== $rssFeedUrl.val()){
+			lastValue = rssModel.settings.feedInputUrl = $rssFeedUrl.val();
+			displayHeader();
+			updateSettingsProperty("feedInputUrl", rssModel.settings.feedInputUrl);
+		}
     });
 
     // user has disconnected from the feed
-    sp.disconnectAccountElm.click(function(){
+    $('.disconnect-account').click(function(){
         updateSettingsProperty("feedInputUrl", "");
-
-        sp.feedInputUrlElm.val("");
-        sp.feedInputUrlElm.focus();
+		lastValue = '';
+        $rssFeedUrl.val("");
+        $rssFeedUrl.focus();
 
         // hide guest description and show connected description
-        $('.guest').toggleClass('hidden');
-        $('.user').toggleClass('hidden');
+        $('.loggedIn').addClass('hidden');
+        $('.loggedOut').removeClass('hidden');
     });
 
-    sp.numOfEntriesInput.change( function(){
-        updateSettingsProperty(sp.numOfEntriesInput.attr("id"), sp.numOfEntriesInput.val());
+	
+    $numOfEntriesInput.change( function(){
+        updateSettingsProperty($numOfEntriesInput.attr("id"), $numOfEntriesInput.val());
     });
 }
 
@@ -121,8 +49,8 @@ function bindEvents () {
  */
 function displayHeader() {
 
-    var guestSection = $('.guest');
-    var userSection = $('.user');
+    var guestSection = $('.loggedOut');
+    var userSection = $('.loggedIn');
 
     // If the feed url is initilized than the user already inserted a url, otherwise the guest section will
     // be displayed and the user will be able to insert a new feed url
@@ -149,50 +77,15 @@ function loadFeedTitleAndDescription() {
     feed.setResultFormat(google.feeds.Feed.JSON_FORMAT);
 
     feed.load(function(result) {
+		var $feedLink = $('#feedLink');
         if (!result.error) {
-            sp.feedLink.attr('href', result.feed.link);
-            sp.feedLink.html(result.feed.title);
+            $feedLink.attr('href', result.feed.link);
+            $feedLink.text(result.feed.title);
             $('.feed-description').html(result.feed.description);
-          }
+	    } else {
+		 //handle Error
+		}
     });
-}
-
-/**
- * Init the plugins elements
- */
-function initPlugins () {
-
-    // Init accordion
-    $('.accordion').Accordion();
-
-    // Init color pickers
-    initColorPickers();
-
-    initSliders();
-
-    initCheckboxes();
-}
-
-/**
- * Get a parameter from the url
- * @param parameterName
- * @return {*|null}
- */
-function getQueryParameter(parameterName) {
-    var url = window.document.URL.toString();
-
-    var index = url.indexOf('?');
-
-    var queryString = url.substring(index + 1, url.length-1);
-
-    var queryArray = queryString.split('&');
-    var queryMap = {};
-    queryArray.forEach(function(element) {
-        var parts = element.split('=');
-        queryMap[parts[0]] = decodeURIComponent(parts[1]);
-    });
-
-    return queryMap[parameterName] || null;
 }
 
 /**
@@ -217,9 +110,7 @@ function updateSettings(settingsJson) {
     $.ajax({
         'type': 'post',
         'url': "/app/settingsupdate",
-        'dataType': "json",
-        'contentType': 'application/json; chatset=UTF-8',
-        'data': JSON.stringify({compId: Wix.Utils.getOrigCompId(), settings: settingsStr}),
+        'data': {compId: Wix.Utils.getOrigCompId(), settings: settingsJson},
         'cache': false,
         'success': function(res) {
             console.log("update setting completed");
@@ -232,35 +123,30 @@ function updateSettings(settingsJson) {
     });
 }
 
-/**
- * Load settings iFrame
- */
-function loadSettings() {
-    // load google feed scripts - should be done in the beginning
-    google.load("feeds", "1");
-
-    $(document).ready(function() {
-
-        window.rssModel = {};
-
-        // Getting newSettings that was set as parameter in settings.vm
-        // Check that newSettings is initialized with value
-        rssModel.settings = !!newSettings ? newSettings : {};
-
-        applySettings();
-
-        displayHeader();
-
-        bindEvents();
-
-        // Init all plugins
-        initPlugins();
-
-        initInputElms();
-    })
+function applySettings() {
+    // RSS feed link
+    rssModel.settings.feedInputUrl = rssModel.settings.feedInputUrl || "";
+    // Number of entries in the RSS feed
+    rssModel.settings.numOfEntries = rssModel.settings.numOfEntries || 4;
 }
 
-loadSettings();
 
+// load google feed scripts - should be done in the beginning
+google.load("feeds", "1");
 
+$(document).ready(function() {
 
+	window.rssModel = {};
+
+	// Getting newSettings that was set as parameter in settings.vm
+	// Check that newSettings is initialized with value
+	rssModel.settings = newSettings || {};
+	
+	applySettings();
+	displayHeader();
+	bindEvents();
+	initInputElms();	
+	
+	Wix.UI.initialize();
+	
+});

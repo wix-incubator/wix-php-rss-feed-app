@@ -56,7 +56,7 @@ class Settings extends DbTable {
         if(!$appInstance){return $defaults;}
         $settings =  $this->select('settings', 'where instanceId=?', array($appInstance->instanceId .':'.$appInstance->compId));
         if(empty($settings)){ return $defaults; }
-        return json_decode( $settings[0]->settings , true);
+        return array('settings' => $settings[0]->settings );
     }
 
     /**
@@ -64,6 +64,24 @@ class Settings extends DbTable {
      * @param $appInstance
      */
     function updateSettings($appInstance) {
+		
+	
+		$settings = json_encode($_POST['settings']);
+		$instanceId = $appInstance->instanceId .':'.$_POST['compId'];
+		
+		$settingsParams = array(
+			":settings" => $settings,
+			":instanceId" => $instanceId
+		);
+
+		if($this->isSettingsExist($instanceId)){
+			$this->update('settings = :settings', 'where instanceId LIKE :instanceId', $settingsParams);
+		} else {
+			$this->query('INSERT INTO '.$this->table.' (settings, instanceId) VALUES (:settings, :instanceId)', $settingsParams);
+		}
+		echo $settings;
+		return;
+		
         $postBody = file_get_contents('php://input');
         $data = json_decode($postBody);
         $instanceId = $appInstance->instanceId .':'.$data->compId;

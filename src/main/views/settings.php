@@ -78,7 +78,7 @@
 </script>
 
 <!-- Wix SDK -->
-<script src="http://sslstatic.wix.com/services/js-sdk/1.22.0/js/Wix.js"></script>
+<script src="http://sslstatic.wix.com/services/js-sdk/1.24.0/js/Wix.js"></script>
 <!-- jQuery Dependency -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <!-- Wix UI -->

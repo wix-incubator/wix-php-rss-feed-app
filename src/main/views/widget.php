@@ -46,7 +46,7 @@
 
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="/app/static/external_modules/flexcroll.js"></script>
-<script type="text/javascript" src="http://sslstatic.wix.com/services/js-sdk/1.22.0/js/Wix.js"></script>
+<script type="text/javascript" src="http://sslstatic.wix.com/services/js-sdk/1.24.0/js/Wix.js"></script>
 <script type="text/javascript" src="/app/static/js/common.js"></script>
 <!--script type="text/javascript" src="/app/static/external_modules/scrollbar/js/jquery.tinyscrollbar.js"></script-->
 <script type="text/javascript" src="/app/static/js/rss.widget.js"></script>

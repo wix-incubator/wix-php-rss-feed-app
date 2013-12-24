@@ -110,7 +110,11 @@ function updateSettings(settingsJson) {
     $.ajax({
         'type': 'post',
         'url': "/app/settingsupdate",
-        'data': {compId: Wix.Utils.getOrigCompId(), settings: settingsJson},
+        'data' : {
+        	settings : settingsJson,
+        	instance : Wix.Utils.getInstanceId(),
+        	compId : Wix.Utils.getOrigCompId()
+        },
         'cache': false,
         'success': function(res) {
             console.log("update setting completed");

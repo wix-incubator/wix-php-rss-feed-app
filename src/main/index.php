@@ -30,7 +30,6 @@
      * set user cookie with the instanceId of the app
      */
     $app->addRoute('settings', function($request) {
-        setcookie( "instance", $request->appInstance->instance, time()+60*60*24);
         echo Template::render('views/settings.php', Settings::getInstance()->getSettings($request->appInstance) );
     });
 

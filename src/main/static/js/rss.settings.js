@@ -106,13 +106,13 @@ function updateSettingsProperty(key, value) {
 function updateSettings(settingsJson) {
     var settingsStr = JSON.stringify(settingsJson) || "";
     var compId = Wix.Utils.getOrigCompId();
-
+	var instance = window.location.search.match(/instance=([^&]+)/);
     $.ajax({
         'type': 'post',
         'url': "/app/settingsupdate",
         'data' : {
         	settings : settingsJson,
-        	instance : Wix.Utils.getInstanceId(),
+        	instance : instance ? instance[1] : null,
         	compId : Wix.Utils.getOrigCompId()
         },
         'cache': false,

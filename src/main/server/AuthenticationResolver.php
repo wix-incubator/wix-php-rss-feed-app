@@ -20,7 +20,7 @@ class AuthenticationResolver {
      * @return string
      */
     private static function getInstanceFromRequest() {
-        $instance = isset($_GET['instance']) ? $_GET['instance'] : '';
+        $instance = isset($_REQUEST['instance']) ? $_REQUEST['instance'] : '';
         if (!$instance) {
             $instance = isset($_COOKIE['instance']) ? $_COOKIE['instance'] : '';
         }
